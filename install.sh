@@ -8,6 +8,12 @@ BACKUP_DIR="$HOME/dotfiles_backup_$(date +%Y%m%d_%H%M%S)"
 
 echo "🔗 Installing dotfiles..."
 
+# Install starship if not already installed
+if ! command -v starship &> /dev/null; then
+    echo "📦 Installing starship..."
+    curl -sS https://starship.rs/install.sh | sh -s -- -y
+fi
+
 # Backup existing files
 backup_if_exists() {
     local file="$1"
