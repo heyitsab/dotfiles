@@ -45,6 +45,9 @@ call plug#end()
 " ============================================================================
 " BASIC SETTINGS
 " ============================================================================
+" Suppress deprecation warnings on startup
+set shortmess+=I
+
 set number                " Show line numbers
 set relativenumber        " Relative line numbers
 set mouse=a               " Enable mouse
