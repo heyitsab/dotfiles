@@ -10,6 +10,10 @@ brew "eza"          # Modern ls replacement
 brew "fd"           # Fast find alternative
 brew "zoxide"       # Smart cd that learns your habits
 
+# Language servers & formatters (installed via Mason in nvim, but these help)
+brew "node"         # Required for TypeScript/JavaScript LSPs
+brew "go"           # Required for Go LSP
+
 # Optional but recommended
 brew "gh"           # GitHub CLI (already installed)
 brew "jq"           # JSON processor
