@@ -23,7 +23,7 @@ set scrolloff=8           " Keep 8 lines above/below cursor
 set signcolumn=yes        " Always show sign column
 
 " Leader key
-let mapleader = " "
+let mapleader = ","
 
 " Quick save and quit
 nnoremap <leader>w :w<CR>
@@ -31,6 +31,10 @@ nnoremap <leader>q :q<CR>
 
 " Clear search highlight
 nnoremap <leader>h :nohlsearch<CR>
+
+" Create splits
+nnoremap <leader>- :split<CR>
+nnoremap <leader>\ :vsplit<CR>
 
 " Split navigation
 nnoremap <C-h> <C-w>h
