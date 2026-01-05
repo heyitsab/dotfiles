@@ -32,6 +32,7 @@ link_file() {
 link_file "$DOTFILES_DIR/.zshrc" "$HOME/.zshrc"
 link_file "$DOTFILES_DIR/.config/starship.toml" "$HOME/.config/starship.toml"
 link_file "$DOTFILES_DIR/.config/tmux/tmux.conf" "$HOME/.config/tmux/tmux.conf"
+link_file "$DOTFILES_DIR/.config/tmux/tmux.conf" "$HOME/.tmux.conf"
 link_file "$DOTFILES_DIR/.config/nvim/init.vim" "$HOME/.config/nvim/init.vim"
 
 echo ""

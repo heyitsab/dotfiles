@@ -40,6 +40,9 @@ Plug 'L3MON4D3/LuaSnip'
 Plug 'saadparwaiz1/cmp_luasnip'
 Plug 'rafamadriz/friendly-snippets'
 
+" Tmux navigation
+Plug 'christoomey/vim-tmux-navigator'
+
 call plug#end()
 
 " ============================================================================
@@ -92,11 +95,8 @@ nnoremap <leader>h :nohlsearch<CR>
 nnoremap <leader>- :split<CR>
 nnoremap <leader>\ :vsplit<CR>
 
-" Split navigation
-nnoremap <C-h> <C-w>h
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-l> <C-w>l
+" Split navigation (handled by vim-tmux-navigator)
+" C-h, C-j, C-k, C-l will work seamlessly between vim and tmux
 
 " Better indenting in visual mode
 vnoremap < <gv
