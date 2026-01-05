@@ -13,6 +13,7 @@ brew "zoxide"       # Smart cd that learns your habits
 # Language servers & formatters (installed via Mason in nvim, but these help)
 brew "node"         # Required for TypeScript/JavaScript LSPs
 brew "go"           # Required for Go LSP
+brew "ruby"         # Modern Ruby (for ruby_lsp)
 
 # Optional but recommended
 brew "gh"           # GitHub CLI (already installed)

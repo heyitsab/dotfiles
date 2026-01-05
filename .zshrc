@@ -21,6 +21,10 @@ command -v bat &> /dev/null && alias cat="bat"
 export EDITOR="nvim"
 export VISUAL="nvim"
 
+# Use Homebrew Ruby (not system Ruby)
+export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
+export PATH="/opt/homebrew/lib/ruby/gems/4.0.0/bin:$PATH"
+
 # Tool initializations
 eval "$(starship init zsh)"
 command -v zoxide &> /dev/null && eval "$(zoxide init zsh)" && alias cd="z"
