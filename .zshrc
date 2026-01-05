@@ -16,7 +16,19 @@ autoload -Uz compinit && compinit
 command -v nvim &> /dev/null && alias vim="nvim" && alias vi="nvim" && alias v="nvim"
 command -v eza &> /dev/null && alias ls="eza" && alias ll="eza -la"
 command -v bat &> /dev/null && alias cat="bat"
-command -v gh &> /dev/null && alias ghcs="TERM=xterm-256color gh cs ssh"
+
+# GitHub Codespaces shortcuts
+if command -v gh &> /dev/null; then
+  alias ghcs="TERM=xterm-256color gh cs ssh"
+  alias ghcsl="gh cs list"
+  alias ghcsp="gh cs ports"
+  alias ghcsf="gh cs ports forward"
+  
+  # Quick SSH to most recent codespace
+  ccs() {
+    gh cs ssh -c $(gh cs list --json name --jq '.[0].name')
+  }
+fi
 
 # Environment variables
 export EDITOR="nvim"
