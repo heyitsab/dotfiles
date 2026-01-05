@@ -15,5 +15,8 @@ brew "gh"           # GitHub CLI (already installed)
 brew "jq"           # JSON processor
 brew "tree"         # Directory visualization
 
+# Fonts
+cask "font-hack-nerd-font"  # Nerd Font for terminal icons
+
 # Cask applications
 cask "ghostty"      # Terminal emulator
