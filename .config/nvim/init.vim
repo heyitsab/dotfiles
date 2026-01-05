@@ -155,6 +155,9 @@ EOF
 " LSP & COMPLETION SETUP
 " ============================================================================
 lua << EOF
+-- Suppress lspconfig deprecation warnings
+vim.deprecate = function() end
+
 -- Mason setup (LSP installer)
 require("mason").setup({
   ui = {
