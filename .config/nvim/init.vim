@@ -86,9 +86,9 @@ vnoremap > >gv
 nnoremap <leader>e :NvimTreeToggle<CR>
 
 " Fuzzy finder keybindings
-nnoremap <leader>f :Files<CR>           " Find files
-nnoremap <leader>g :Rg<CR>              " Search content (ripgrep)
-nnoremap <leader>b :Buffers<CR>         " Search open buffers
+nnoremap <leader>f :Files<CR>
+nnoremap <leader>g :Rg<CR>
+nnoremap <leader>b :Buffers<CR>
 
 " ============================================================================
 " PLUGIN CONFIGURATION
