@@ -13,7 +13,7 @@ setopt HIST_IGNORE_SPACE
 autoload -Uz compinit && compinit
 
 # Aliases (only enable when tools are installed)
-command -v nvim &> /dev/null && alias vim="nvim" && alias vi="nvim"
+command -v nvim &> /dev/null && alias vim="nvim" && alias vi="nvim" && alias v="nvim"
 command -v eza &> /dev/null && alias ls="eza" && alias ll="eza -la"
 command -v bat &> /dev/null && alias cat="bat"
 

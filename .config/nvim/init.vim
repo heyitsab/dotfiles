@@ -81,7 +81,8 @@ let mapleader = ","
 nnoremap <leader>w :w<CR>
 nnoremap <leader>q :q<CR>
 
-" Clear search highlight
+" Clear search highlight (Esc in normal mode)
+nnoremap <Esc> :nohlsearch<CR>
 nnoremap <leader>h :nohlsearch<CR>
 
 " Create splits
