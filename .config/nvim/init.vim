@@ -24,6 +24,10 @@ Plug 'nvim-tree/nvim-tree.lua'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 
+" Telescope - Better fuzzy finder with LSP integration
+Plug 'nvim-telescope/telescope.nvim'
+Plug 'nvim-lua/plenary.nvim'
+
 " LSP and completion
 Plug 'neovim/nvim-lspconfig'
 Plug 'williamboman/mason.nvim'
@@ -74,6 +78,10 @@ set termguicolors         " True color support
 set scrolloff=8           " Keep 8 lines above/below cursor
 set signcolumn=yes        " Always show sign column
 
+" Folding settings (will be enabled per-filetype after Treesitter loads)
+set foldlevelstart=99     " Start with all folds open
+set foldnestmax=10        " Max 10 fold levels
+
 " ============================================================================
 " COLOR SCHEME
 " ============================================================================
@@ -112,6 +120,16 @@ nnoremap <leader>e :NvimTreeToggle<CR>
 nnoremap <leader>f :Files<CR>
 nnoremap <leader>g :Rg<CR>
 nnoremap <leader>b :Buffers<CR>
+
+" Telescope keybindings
+nnoremap <leader>s :Telescope lsp_document_symbols<CR>
+nnoremap <leader>S :Telescope lsp_dynamic_workspace_symbols<CR>
+nnoremap <leader>o :Telescope oldfiles<CR>
+
+" Code folding keybindings
+nnoremap <Space> za
+nnoremap zR zR
+nnoremap zM zM
 
 " LSP keybindings (will be set up after LSP attaches)
 " gd - Go to definition
@@ -174,8 +192,40 @@ if status_ok then
   vim.api.nvim_create_autocmd('FileType', {
     pattern = { 'go', 'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'ruby', 'lua', 'vim', 'markdown', 'json', 'yaml', 'html', 'css' },
     callback = function()
-      vim.treesitter.start()
+      -- Only start treesitter if parser is available
+      local lang = vim.treesitter.language.get_lang(vim.bo.filetype)
+      if lang and pcall(vim.treesitter.language.add, lang) then
+        pcall(vim.treesitter.start)
+        
+        -- Enable treesitter-based folding
+        vim.opt_local.foldmethod = 'expr'
+        vim.opt_local.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
+      end
     end,
+  })
+end
+EOF
+
+" ============================================================================
+" TELESCOPE SETUP
+" ============================================================================
+lua << EOF
+local status_ok, telescope = pcall(require, 'telescope')
+if status_ok then
+  telescope.setup({
+    defaults = {
+      layout_config = {
+        horizontal = {
+          preview_width = 0.55,
+        },
+      },
+      mappings = {
+        i = {
+          ["<C-j>"] = "move_selection_next",
+          ["<C-k>"] = "move_selection_previous",
+        },
+      },
+    },
   })
 end
 EOF

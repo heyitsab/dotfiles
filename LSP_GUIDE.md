@@ -56,6 +56,22 @@ Press **Tab** to jump between snippet fields.
 | `[d` | Previous diagnostic |
 | `]d` | Next diagnostic |
 
+### Code Navigation & Symbols
+| Key | Action |
+|-----|--------|
+| `,s` | Show document symbols (functions, types, etc.) |
+| `,S` | Show workspace symbols (search all files) |
+| `,o` | Recent files |
+
+### Code Folding
+| Key | Action |
+|-----|--------|
+| `Space` | Toggle fold under cursor |
+| `zR` | Open all folds |
+| `zM` | Close all folds |
+| `zo` | Open fold |
+| `zc` | Close fold |
+
 ### Completion
 | Key | Action |
 |-----|--------|
