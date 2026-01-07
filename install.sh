@@ -118,8 +118,14 @@ link_file() {
 link_file "$DOTFILES_DIR/.zshrc" "$HOME/.zshrc"
 link_file "$DOTFILES_DIR/.bashrc" "$HOME/.bashrc"
 link_file "$DOTFILES_DIR/.config/starship.toml" "$HOME/.config/starship.toml"
+
+# Link tmux config to modern location first
 link_file "$DOTFILES_DIR/.config/tmux/tmux.conf" "$HOME/.config/tmux/tmux.conf"
-link_file "$DOTFILES_DIR/.config/tmux/tmux.conf" "$HOME/.tmux.conf"
+# Then link legacy location to the modern one for compatibility
+rm -f "$HOME/.tmux.conf"  # Remove if it's a regular file
+ln -sf "$HOME/.config/tmux/tmux.conf" "$HOME/.tmux.conf"
+echo "✅ Linked $HOME/.config/tmux/tmux.conf -> $HOME/.tmux.conf"
+
 link_file "$DOTFILES_DIR/.config/nvim/init.vim" "$HOME/.config/nvim/init.vim"
 
 # Change default shell to zsh (Codespaces and Linux)
