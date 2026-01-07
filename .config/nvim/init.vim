@@ -40,6 +40,9 @@ Plug 'L3MON4D3/LuaSnip'
 Plug 'saadparwaiz1/cmp_luasnip'
 Plug 'rafamadriz/friendly-snippets'
 
+" Treesitter - Better syntax highlighting
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+
 " Tmux navigation
 Plug 'christoomey/vim-tmux-navigator'
 
@@ -149,6 +152,32 @@ require("nvim-tree").setup({
     dotfiles = false,
   },
 })
+EOF
+
+" ============================================================================
+" TREESITTER SETUP
+" ============================================================================
+lua << EOF
+-- Only setup if treesitter is installed
+local status_ok, treesitter = pcall(require, 'nvim-treesitter')
+if status_ok then
+  -- Setup treesitter
+  treesitter.setup {
+    install_dir = vim.fn.stdpath('data') .. '/site'
+  }
+  
+  -- Install parsers for these languages
+  local parsers = { 'go', 'typescript', 'javascript', 'tsx', 'ruby', 'lua', 'vim', 'vimdoc', 'markdown', 'json', 'yaml', 'html', 'css' }
+  treesitter.install(parsers)
+  
+  -- Enable treesitter highlighting for supported filetypes
+  vim.api.nvim_create_autocmd('FileType', {
+    pattern = { 'go', 'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'ruby', 'lua', 'vim', 'markdown', 'json', 'yaml', 'html', 'css' },
+    callback = function()
+      vim.treesitter.start()
+    end,
+  })
+end
 EOF
 
 " ============================================================================

@@ -9,6 +9,14 @@
 ✅ **Inline signature help** - see function parameters as you type
 ✅ **Smart diagnostics** - errors shown on cursor hold, not while typing
 
+## Treesitter
+
+**Out of the box!** Rich syntax highlighting for:
+- Go, TypeScript/JavaScript, Ruby, Lua
+- JSON, YAML, HTML, CSS, Markdown
+
+Auto-installs language parsers on first use.
+
 ## Snippets
 
 **Out of the box!** Uses `friendly-snippets` collection. Examples:
