@@ -43,15 +43,46 @@ if [[ "$OS" == "linux" ]]; then
     
     # Install fzf
     if ! command -v fzf &> /dev/null; then
-        echo "📦 Installing fzf..."
-        git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
-        ~/.fzf/install --all --no-bash --no-fish
+        if [ ! -d ~/.fzf ]; then
+            echo "📦 Installing fzf..."
+            git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+            ~/.fzf/install --all --no-bash --no-fish
+        else
+            echo "⚠️  fzf directory exists, running install script..."
+            ~/.fzf/install --all --no-bash --no-fish
+        fi
     fi
     
     # Install zoxide
     if ! command -v zoxide &> /dev/null; then
         echo "📦 Installing zoxide..."
         curl -sS https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | bash
+    fi
+    
+    # Install thefuck
+    if ! command -v thefuck &> /dev/null; then
+        echo "📦 Installing thefuck..."
+        sudo apt-get install -y python3-dev python3-pip python3-setuptools
+        pip3 install --user thefuck
+    fi
+    
+    # Install lazygit
+    if ! command -v lazygit &> /dev/null; then
+        echo "📦 Installing lazygit..."
+        LAZYGIT_VERSION=$(curl -s "https://api.github.com/repos/jesseduffield/lazygit/releases/latest" | grep -Po '"tag_name": "v\K[^"]*')
+        curl -Lo lazygit.tar.gz "https://github.com/jesseduffield/lazygit/releases/latest/download/lazygit_${LAZYGIT_VERSION}_Linux_x86_64.tar.gz"
+        tar xf lazygit.tar.gz lazygit
+        sudo install lazygit /usr/local/bin
+        rm lazygit lazygit.tar.gz
+    fi
+    
+    # Install bat (better cat)
+    if ! command -v bat &> /dev/null && ! command -v batcat &> /dev/null; then
+        echo "📦 Installing bat..."
+        sudo apt-get install -y bat
+        # Create alias since Ubuntu calls it batcat
+        mkdir -p ~/.local/bin
+        ln -sf /usr/bin/batcat ~/.local/bin/bat 2>/dev/null || true
     fi
     
 elif [[ "$OS" == "macos" ]]; then
