@@ -44,7 +44,7 @@ fi
 export PATH="$HOME/.local/bin:$PATH"
 
 # Tool initializations
-eval "$(starship init zsh)"
+command -v starship &> /dev/null && eval "$(starship init zsh)"
 command -v zoxide &> /dev/null && eval "$(zoxide init zsh)" && alias cd="z"
 command -v fzf &> /dev/null && eval "$(fzf --zsh)"
 command -v thefuck &> /dev/null && eval "$(thefuck --alias)"
