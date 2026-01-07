@@ -1,18 +1,12 @@
-# ~/.zshrc - Managed by dotfiles repo
-# NOTE: Put secrets like GITHUB_TOKEN in ~/.zshrc.local (gitignored)
+# ~/.bashrc - Managed by dotfiles repo
+# NOTE: Put secrets like GITHUB_TOKEN in ~/.bashrc.local (gitignored)
 
 # History settings
-HISTFILE=~/.zsh_history
 HISTSIZE=10000
-SAVEHIST=10000
-setopt SHARE_HISTORY
-setopt HIST_IGNORE_DUPS
-setopt HIST_IGNORE_SPACE
+HISTFILESIZE=20000
+shopt -s histappend
 
-# Basic completion
-autoload -Uz compinit && compinit
-
-# Aliases (only enable when tools are installed)
+# Basic aliases (only enable when tools are installed)
 command -v nvim &> /dev/null && alias vim="nvim" && alias vi="nvim" && alias v="nvim"
 command -v eza &> /dev/null && alias ls="eza" && alias ll="eza -la"
 command -v bat &> /dev/null && alias cat="bat"
@@ -34,21 +28,18 @@ fi
 export EDITOR="nvim"
 export VISUAL="nvim"
 
-# Homebrew paths (macOS only)
-if [[ "$OSTYPE" == "darwin"* ]]; then
+# Homebrew setup (macOS)
+if [[ -f /opt/homebrew/bin/brew ]]; then
+  eval "$(/opt/homebrew/bin/brew shellenv)"
   export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
   export PATH="/opt/homebrew/lib/ruby/gems/4.0.0/bin:$PATH"
 fi
 
-# Add local bin to path (for tools installed via curl)
-export PATH="$HOME/.local/bin:$PATH"
-
 # Tool initializations
-eval "$(starship init zsh)"
-command -v zoxide &> /dev/null && eval "$(zoxide init zsh)" && alias cd="z"
-command -v fzf &> /dev/null && eval "$(fzf --zsh)"
+command -v starship &> /dev/null && eval "$(starship init bash)"
+command -v zoxide &> /dev/null && eval "$(zoxide init bash)" && alias cd="z"
+command -v fzf &> /dev/null && eval "$(fzf --bash)"
 command -v thefuck &> /dev/null && eval "$(thefuck --alias)"
 
 # Load local customizations if they exist
-[[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
-
+[[ -f ~/.bashrc.local ]] && source ~/.bashrc.local
