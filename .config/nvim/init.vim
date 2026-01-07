@@ -131,6 +131,15 @@ nnoremap <Space> za
 nnoremap zR zR
 nnoremap zM zM
 
+" Screen positioning / scrolling
+nnoremap zt zt
+nnoremap zz zz
+nnoremap zb zb
+nnoremap <C-d> <C-d>zz
+nnoremap <C-u> <C-u>zz
+nnoremap n nzzzv
+nnoremap N Nzzzv
+
 " LSP keybindings (will be set up after LSP attaches)
 " gd - Go to definition
 " gr - Find references

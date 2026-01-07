@@ -82,14 +82,25 @@ After running `install.sh`:
 
 ## Key Bindings
 
-### Tmux (prefix: Ctrl-a)
-- `Ctrl-a |` - Split vertically
-- `Ctrl-a -` - Split horizontally
-- `Ctrl-a h/j/k/l` - Navigate panes
-- `Ctrl-a r` - Reload config
+### Tmux (prefix: Ctrl-s)
+- `Ctrl-s |` - Split vertically
+- `Ctrl-s -` - Split horizontally
+- `Ctrl-h/j/k/l` - Navigate panes (works with vim!)
+- `Ctrl-s r` - Reload config
+- `Ctrl-s [` - Enter copy mode
+- `v` (in copy mode) - Start selection
+- `y` (in copy mode) - Copy selection
+- `Ctrl-s ]` - Paste
 
-### Neovim (leader: Space)
-- `Space w` - Save
+### Neovim - Navigation
+- `Ctrl-d` / `Ctrl-u` - Scroll down/up (keeps cursor centered)
+- `zt` - Move current line to top of screen
+- `zz` - Move current line to center of screen
+- `zb` - Move current line to bottom of screen
+- `n` / `N` - Next/previous search (centered)
+
+### Neovim - Leader Keys (leader: ,)
+- `,w` - Save
 - `Space q` - Quit
 - `Space h` - Clear search highlight
 - `Ctrl-h/j/k/l` - Navigate splits
