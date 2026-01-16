@@ -3,7 +3,8 @@
 
 set -e
 
-DOTFILES_DIR="$HOME/dotfiles"
+# Get the directory where this script is located
+DOTFILES_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 BACKUP_DIR="$HOME/dotfiles_backup_$(date +%Y%m%d_%H%M%S)"
 
 echo "🔗 Installing dotfiles..."

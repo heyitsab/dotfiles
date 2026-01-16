@@ -94,6 +94,15 @@ colorscheme gruvbox
 " Leader key
 let mapleader = ","
 
+" Command typo fixes
+command! W w
+command! Q q
+command! Wq wq
+command! WQ wq
+command! Wqa wqa
+command! WQa wqa
+command! WQA wqa
+
 " Quick save and quit
 nnoremap <leader>w :w<CR>
 nnoremap <leader>q :q<CR>
@@ -115,6 +124,7 @@ vnoremap > >gv
 
 " File tree toggle
 nnoremap <leader>e :NvimTreeToggle<CR>
+nnoremap <C-n> :NvimTreeToggle<CR>
 
 " Fuzzy finder keybindings
 nnoremap <leader>f :Files<CR>
