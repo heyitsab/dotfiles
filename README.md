@@ -2,6 +2,8 @@
 
 My personal development environment configuration for **macOS** and **Linux** (including GitHub Codespaces).
 
+> **Chiste de Papá:** ¿Por qué los programadores prefieren el modo oscuro? ¡Porque la luz atrae bichos! 🐛
+
 ## Tools
 - **Shell**: zsh with starship prompt
 - **Editor**: neovim with LSP support
