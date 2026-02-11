@@ -2,7 +2,11 @@
 
 My personal development environment configuration for **macOS** and **Linux** (including GitHub Codespaces).
 
+> **Dad Joke:** Why do programmers prefer dark mode? Because light attracts bugs! 🐛
+>
 > **Chiste de Papá:** ¿Por qué los programadores prefieren el modo oscuro? ¡Porque la luz atrae bichos! 🐛
+>
+> **Αστείο Μπαμπά:** Γιατί οι προγραμματιστές προτιμούν τη σκοτεινή λειτουργία; Επειδή το φως προσελκύει κοριούς! 🐛
 
 ## Tools
 - **Shell**: zsh with starship prompt
