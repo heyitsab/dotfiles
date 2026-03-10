@@ -268,11 +268,12 @@ require("mason").setup({
 })
 
 -- Mason-lspconfig: auto-install these language servers
+-- Note: ruby_lsp requires Ruby >= 3.0 with bundler, so it's not in ensure_installed
+-- Install it manually via :Mason if you have a proper Ruby environment
 require("mason-lspconfig").setup({
   ensure_installed = {
     "ts_ls",        -- TypeScript/JavaScript
     "gopls",        -- Go
-    "ruby_lsp",     -- Ruby
   },
   automatic_installation = true,
 })
@@ -397,11 +398,13 @@ lspconfig.gopls.setup({
   on_attach = on_attach,
 })
 
--- Ruby
-lspconfig.ruby_lsp.setup({
-  capabilities = capabilities,
-  on_attach = on_attach,
-})
+-- Ruby (only if ruby_lsp is installed via Mason)
+if vim.fn.executable('ruby-lsp') == 1 or pcall(function() return require('lspconfig.configs').ruby_lsp end) then
+  lspconfig.ruby_lsp.setup({
+    capabilities = capabilities,
+    on_attach = on_attach,
+  })
+end
 
 -- Diagnostic configuration (less noisy)
 vim.diagnostic.config({
