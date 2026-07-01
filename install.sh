@@ -128,6 +128,7 @@ ln -sf "$HOME/.config/tmux/tmux.conf" "$HOME/.tmux.conf"
 echo "✅ Linked $HOME/.config/tmux/tmux.conf -> $HOME/.tmux.conf"
 
 link_file "$DOTFILES_DIR/.config/nvim/init.vim" "$HOME/.config/nvim/init.vim"
+link_file "$DOTFILES_DIR/.copilot/copilot-instructions.md" "$HOME/.copilot/copilot-instructions.md"
 
 # Change default shell to zsh (Codespaces and Linux)
 if [[ "$SHELL" != *"zsh"* ]]; then

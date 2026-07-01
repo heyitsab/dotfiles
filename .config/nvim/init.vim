@@ -203,9 +203,9 @@ if status_ok then
     install_dir = vim.fn.stdpath('data') .. '/site'
   }
   
-  -- Install parsers for these languages
+  -- Install parsers for these languages (prefer_git avoids tree-sitter CLI GLIBC issues in codespaces)
   local parsers = { 'go', 'typescript', 'javascript', 'tsx', 'ruby', 'lua', 'vim', 'vimdoc', 'markdown', 'json', 'yaml', 'html', 'css' }
-  treesitter.install(parsers)
+  pcall(treesitter.install, parsers, { prefer_git = true })
   
   -- Enable treesitter highlighting for supported filetypes
   vim.api.nvim_create_autocmd('FileType', {

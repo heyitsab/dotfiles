@@ -21,6 +21,7 @@ brew "tree-sitter"  # Required for nvim treesitter highlighting
 # Optional but recommended
 brew "gh"           # GitHub CLI (already installed)
 brew "jq"           # JSON processor
+brew "fx"           # Interactive JSON viewer (expand/collapse with arrow keys)
 brew "tree"         # Directory visualization
 
 # Fonts

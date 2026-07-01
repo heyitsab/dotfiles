@@ -13,7 +13,7 @@ command -v bat &> /dev/null && alias cat="bat"
 
 # GitHub Codespaces shortcuts
 if command -v gh &> /dev/null; then
-  alias ghcs="TERM=xterm-256color gh cs ssh"
+  alias ghcs="TERM=xterm-256color gh cs ssh -- -t"
   alias ghcsl="gh cs list"
   alias ghcsp="gh cs ports"
   alias ghcsf="gh cs ports forward"
