@@ -130,6 +130,10 @@ echo "✅ Linked $HOME/.config/tmux/tmux.conf -> $HOME/.tmux.conf"
 link_file "$DOTFILES_DIR/.config/nvim/init.vim" "$HOME/.config/nvim/init.vim"
 link_file "$DOTFILES_DIR/.copilot/copilot-instructions.md" "$HOME/.copilot/copilot-instructions.md"
 
+if [[ "${CODESPACES:-false}" == "true" ]]; then
+    "$DOTFILES_DIR/scripts/setup-copilot-codespaces.sh"
+fi
+
 # Change default shell to zsh (Codespaces and Linux)
 if [[ "$SHELL" != *"zsh"* ]]; then
     echo "🐚 Changing default shell to zsh..."

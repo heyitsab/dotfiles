@@ -44,6 +44,30 @@ exec zsh
 
 **For Codespaces**: Set your dotfiles repo in [GitHub Settings → Codespaces](https://github.com/settings/codespaces) and it will auto-install on every new codespace.
 
+### Copilot Brain in Codespaces
+
+The Codespaces installer can clone the private `heyitsab/copilot-brain` repository into `~/Documents/Copilot Brain` and configure a read-only `copilot-brain` MCP server.
+
+Create a fine-grained personal access token with:
+
+- Repository access: only `heyitsab/copilot-brain`
+- Repository permission: Contents, read-only
+
+Store it as a Codespaces user secret named `COPILOT_BRAIN_TOKEN` and grant it to the repositories where Codespaces should load the Brain. Do not put the token in this repository or any shell configuration.
+
+The Codespaces setup intentionally does not copy local Slack, Datadog, Splunk, feature-flag, Keychain, Herdr, or machine-specific permission configuration. The Mac vault remains writable; Codespaces gets read-only MCP access and can safely pull updates. When asked to save a note in Codespaces, Copilot returns the proposed path and content for review instead of claiming it wrote to the vault.
+
+### Ponytail
+
+The Codespaces installer also installs the third-party [Ponytail](https://github.com/DietrichGebert/ponytail) Copilot CLI plugin when `copilot` is available. It defaults to `full` mode and adds mode switching plus review, audit, debt, gain, and help skills.
+
+Useful commands:
+
+```text
+/ponytail:ponytail lite|full|ultra|off
+/ponytail:ponytail-review
+```
+
 ## Structure
 
 ```
@@ -57,6 +81,9 @@ dotfiles/
 │   │   └── init.vim
 │   └── tmux/             # Tmux configuration
 │       └── tmux.conf
+├── .copilot/             # Portable Copilot instructions
+├── scripts/
+│   └── setup-copilot-codespaces.sh
 └── install.sh            # Cross-platform installer
 ```
 
