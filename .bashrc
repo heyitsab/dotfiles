@@ -39,7 +39,7 @@ fi
 command -v starship &> /dev/null && eval "$(starship init bash)"
 command -v zoxide &> /dev/null && eval "$(zoxide init bash)" && alias cd="z"
 command -v fzf &> /dev/null && eval "$(fzf --bash)"
-command -v thefuck &> /dev/null && eval "$(thefuck --alias)"
+command -v pay-respects &> /dev/null && eval "$(pay-respects bash --alias)"
 
 # Load local customizations if they exist
 [[ -f ~/.bashrc.local ]] && source ~/.bashrc.local

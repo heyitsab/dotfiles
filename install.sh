@@ -60,11 +60,10 @@ if [[ "$OS" == "linux" ]]; then
         curl -sS https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | bash
     fi
     
-    # Install thefuck
-    if ! command -v thefuck &> /dev/null; then
-        echo "📦 Installing thefuck..."
-        sudo apt-get install -y python3-dev python3-pip python3-setuptools
-        pip3 install --user thefuck
+    # Install pay-respects (modern, maintained thefuck alternative)
+    if ! command -v pay-respects &> /dev/null; then
+        echo "📦 Installing pay-respects..."
+        curl -sSfL https://raw.githubusercontent.com/iffse/pay-respects/main/install.sh | sh
     fi
     
     # Install lazygit

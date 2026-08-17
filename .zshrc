@@ -47,7 +47,7 @@ export PATH="$HOME/.local/bin:$PATH"
 command -v starship &> /dev/null && eval "$(starship init zsh)"
 command -v zoxide &> /dev/null && eval "$(zoxide init zsh)" && alias cd="z"
 command -v fzf &> /dev/null && eval "$(fzf --zsh)"
-command -v thefuck &> /dev/null && eval "$(thefuck --alias)"
+command -v pay-respects &> /dev/null && eval "$(pay-respects zsh --alias)"
 
 # Load local customizations if they exist
 [[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
