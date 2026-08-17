@@ -55,7 +55,9 @@ Create a fine-grained personal access token with:
 
 Store it as a Codespaces user secret named `COPILOT_BRAIN_TOKEN` and grant it to the repositories where Codespaces should load the Brain. Do not put the token in this repository or any shell configuration.
 
-The Codespaces setup intentionally does not copy local Slack, Datadog, Splunk, feature-flag, Keychain, Herdr, or machine-specific permission configuration. The Mac vault remains writable; Codespaces gets read-only MCP access and can safely pull updates. When asked to save a note in Codespaces, Copilot returns the proposed path and content for review instead of claiming it wrote to the vault.
+The Codespaces setup intentionally does not copy local Slack, Datadog, Splunk, feature-flag, Keychain, or machine-specific permission configuration. The Mac vault remains writable; Codespaces gets read-only MCP access and can safely pull updates. When asked to save a note in Codespaces, Copilot returns the proposed path and content for review instead of claiming it wrote to the vault.
+
+Herdr (the `herdr` CLI binary) is installed by `install.sh` on both macOS and Linux/Codespaces; only credential-bearing local config is excluded from Codespaces, not the tool itself.
 
 ### Ponytail
 

@@ -1,0 +1,21 @@
+# herdr configuration
+# Mapped to match ~/.config/tmux/tmux.conf muscle memory.
+# See dotfiles repo README for the tmux <-> herdr concept mapping.
+
+[keys]
+# Match tmux's prefix (default herdr prefix is ctrl+b)
+prefix = "ctrl+s"
+
+# Match tmux's default detach binding (herdr defaults to prefix+q)
+detach = "prefix+d"
+
+# Explicitly pinned to prefix+r (same as herdr's default) since tmux's
+# prefix+r is used for config reload but we're intentionally keeping
+# resize on this slot instead and leaving reload_config unbound here.
+resize_mode = "prefix+r"
+
+# focus_pane_left/down/up/right, split_vertical, split_horizontal, zoom,
+# new_tab, next_tab/previous_tab, and close_pane are left at herdr's
+# defaults (prefix+h/j/k/l, prefix+v, prefix+minus, prefix+z, prefix+c,
+# prefix+n/p, prefix+x) since they already match tmux's own defaults or
+# the split-character conventions used in tmux.conf.

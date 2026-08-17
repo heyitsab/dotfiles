@@ -9,8 +9,9 @@ brew "bat"          # Better cat with syntax highlighting
 brew "eza"          # Modern ls replacement
 brew "fd"           # Fast find alternative
 brew "zoxide"       # Smart cd that learns your habits
-brew "thefuck"      # Corrects your previous console command
+brew "pay-respects" # Corrects your previous console command
 brew "lazygit"      # Terminal UI for git commands
+brew "herdr"        # Terminal multiplexer for AI coding agent sessions
 
 # Language servers & formatters (installed via Mason in nvim, but these help)
 brew "node"         # Required for TypeScript/JavaScript LSPs

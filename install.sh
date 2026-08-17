@@ -84,7 +84,13 @@ if [[ "$OS" == "linux" ]]; then
         mkdir -p ~/.local/bin
         ln -sf /usr/bin/batcat ~/.local/bin/bat 2>/dev/null || true
     fi
-    
+
+    # Install herdr (terminal agent multiplexer)
+    if ! command -v herdr &> /dev/null; then
+        echo "📦 Installing herdr..."
+        curl -fsSL https://herdr.dev/install.sh | sh
+    fi
+
 elif [[ "$OS" == "macos" ]]; then
     # Install starship on macOS
     if ! command -v starship &> /dev/null; then
@@ -127,6 +133,7 @@ ln -sf "$HOME/.config/tmux/tmux.conf" "$HOME/.tmux.conf"
 echo "✅ Linked $HOME/.config/tmux/tmux.conf -> $HOME/.tmux.conf"
 
 link_file "$DOTFILES_DIR/.config/nvim/init.vim" "$HOME/.config/nvim/init.vim"
+link_file "$DOTFILES_DIR/.config/herdr/config.toml" "$HOME/.config/herdr/config.toml"
 link_file "$DOTFILES_DIR/.copilot/copilot-instructions.md" "$HOME/.copilot/copilot-instructions.md"
 
 if [[ "${CODESPACES:-false}" == "true" ]]; then
