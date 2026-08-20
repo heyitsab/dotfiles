@@ -28,6 +28,9 @@ fi
 export EDITOR="nvim"
 export VISUAL="nvim"
 
+# Add local bin to path (for tools installed via curl)
+export PATH="$HOME/.local/bin:$PATH"
+
 # Homebrew setup (macOS)
 if [[ -f /opt/homebrew/bin/brew ]]; then
   eval "$(/opt/homebrew/bin/brew shellenv)"

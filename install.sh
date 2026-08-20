@@ -7,6 +7,11 @@ set -e
 DOTFILES_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 BACKUP_DIR="$HOME/dotfiles_backup_$(date +%Y%m%d_%H%M%S)"
 
+# curl-based installers place binaries here. Make them available to this
+# installer immediately as well as to future shell sessions.
+mkdir -p "$HOME/.local/bin"
+export PATH="$HOME/.local/bin:$PATH"
+
 echo "🔗 Installing dotfiles..."
 
 # Detect OS
@@ -22,7 +27,7 @@ echo "📦 Detected OS: $OS"
 if [[ "$OS" == "linux" ]]; then
     echo "📦 Installing Linux packages..."
     sudo apt-get update -qq
-    sudo apt-get install -y zsh curl git build-essential &> /dev/null || true
+    sudo apt-get install -y zsh curl git build-essential zstd &> /dev/null
     
     # Install starship
     if ! command -v starship &> /dev/null; then
