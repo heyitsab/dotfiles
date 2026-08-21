@@ -25,26 +25,15 @@
 
 ## Copilot Brain
 
-- Use the `copilot-brain` MCP for long-lived investigations, architecture context, decisions, and reusable research.
-- Consult relevant vault notes when a task appears related to prior work; do not search the vault for trivial or unrelated tasks.
-- When I explicitly ask to save, remember, or document substantial work, create or update a focused note in the appropriate vault folder.
-- If the Brain is read-only, return the proposed note content and target path for review, and state clearly that it was not saved.
-- Use YAML frontmatter, descriptive titles, tags, and `[[wikilinks]]` to connect related notes.
-- Keep each knowledge base navigable through a `00 - Index` note rather than one large document.
-- Include provenance links to relevant repositories, issues, pull requests, or session artifacts when available.
-- Never store credentials, tokens, secrets, or sensitive personal information in the vault.
+- Consult relevant Copilot Brain notes when prior context is likely useful; do not search the vault for trivial or unrelated tasks.
+- Use the `copilot-brain` MCP only for durable investigations, architecture, decisions, and reusable research.
+- Never store credentials, tokens, secrets, sensitive personal information, or raw production data in the vault.
 
-## Focused Fleet Reviews
+## Multi-model Reviews
 
 - Only deploy a multi-model fleet when I say `Fleet deployed` or explicitly request a multi-model review.
-- Use four strong, diverse models across model families rather than duplicating near-identical reviewers.
-- Give each reviewer the same artifact, constraints, review questions, and requested output format.
-- Keep reviews independent until synthesis.
-- Synthesize findings into a consensus map showing which reviewers raised each issue, severity, evidence, disagreements, and recommended action.
-- Treat agreement as a prioritization signal, not proof; verify actionable claims against code or data.
 
-## Production Evidence Tools
+## Production Evidence
 
-- When a prompt names an MCP such as Slack, Datadog, Splunk, Kusto, or feature flags, use that source directly rather than reasoning from memory.
-- For Splunk, load and invoke the specific tool needed, such as `list_profiles`, `health_check`, or `search_splunk`; do not use the server's `list_tools` meta-tool to infer availability.
-- Keep production queries narrowly time-bounded and identify the profile or stamp explicitly.
+- When I name Slack, Datadog, Splunk, Kusto, feature flags, or another production source, query that source directly rather than reasoning from memory.
+- Keep production queries narrowly time-bounded and identify the environment, profile, or stamp explicitly.

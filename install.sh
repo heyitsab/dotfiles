@@ -141,6 +141,11 @@ link_file "$DOTFILES_DIR/.config/nvim/init.vim" "$HOME/.config/nvim/init.vim"
 link_file "$DOTFILES_DIR/.config/herdr/config.toml" "$HOME/.config/herdr/config.toml"
 link_file "$DOTFILES_DIR/.copilot/copilot-instructions.md" "$HOME/.copilot/copilot-instructions.md"
 
+for skill_file in "$DOTFILES_DIR"/.copilot/skills/*/SKILL.md; do
+    skill_name="$(basename "$(dirname "$skill_file")")"
+    link_file "$skill_file" "$HOME/.copilot/skills/$skill_name/SKILL.md"
+done
+
 if [[ "${CODESPACES:-false}" == "true" ]]; then
     "$DOTFILES_DIR/scripts/setup-copilot-codespaces.sh"
 fi

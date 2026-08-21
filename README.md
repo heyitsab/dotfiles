@@ -84,10 +84,26 @@ dotfiles/
 │   └── tmux/             # Tmux configuration
 │       └── tmux.conf
 ├── .copilot/             # Portable Copilot instructions
+│   └── skills/           # Personal Copilot CLI skills
 ├── scripts/
 │   └── setup-copilot-codespaces.sh
 └── install.sh            # Cross-platform installer
 ```
+
+### Personal Copilot Skills
+
+| Skill | Purpose |
+| --- | --- |
+| `brain-notes` | Researches and saves durable context in Copilot Brain |
+| `bruh` | Restates the previous response in concise, plain language |
+| `check-feedback` | Evaluates pull request feedback against the codebase |
+| `code-walkthrough` | Explains existing code as a mental model |
+| `fleet-review` | Runs explicitly requested four-model reviews |
+| `herdr` | Controls Herdr using its version-matched command surface |
+| `production-proof` | Verifies production claims with direct evidence |
+
+The Herdr skill is adapted from the upstream skill for the version recorded in
+`.copilot/skills/herdr/upstream-version`.
 
 ## What Gets Installed
 
