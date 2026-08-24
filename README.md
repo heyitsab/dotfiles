@@ -101,6 +101,7 @@ dotfiles/
 | `fleet-review` | Runs explicitly requested four-model reviews |
 | `herdr` | Controls Herdr using its version-matched command surface |
 | `production-proof` | Verifies production claims with direct evidence |
+| `stfu` | Removes redundant and conversation-dependent comments |
 
 The Herdr skill is adapted from the upstream skill for the version recorded in
 `.copilot/skills/herdr/upstream-version`.
