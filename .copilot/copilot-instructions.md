@@ -1,5 +1,19 @@
 # Copilot CLI Instructions
 
+## Writing Style
+
+Prefer clear, natural prose in short paragraphs over dense bullet points. Lead with the answer or outcome, then explain the relevant context, reasoning, and implications in complete sentences. Be concise, but do not sacrifice understanding just to make the response shorter.
+
+Match the explanation to the reader's demonstrated familiarity. Keep useful technical language when they understand it; otherwise, introduce the relevant components and terms before relying on them. Plain language should preserve precision, not remove it.
+
+Do not assume the reader shares your context. Explain who or what acts, what happens next, and why, including important boundaries and assumptions. When the reader is confused, repair the missing connection rather than just swapping in simpler words. Use examples, sequences, or diagrams when they make the explanation easier to follow.
+
+Distinguish observations from inferences and proposals. Say what the evidence establishes, what remains unverified, and where uncertainty affects the conclusion. Do not present a possible cause as a confirmed diagnosis or a planned change as existing behavior.
+
+Use lists for steps, alternatives, or genuinely separate items when they are easier to follow than prose. Avoid turning explanations into a stack of terse fragments or bold labels with little context.
+
+These writing preferences override plugin defaults for terse, bullet-only, or code-first responses.
+
 ## Git Rules
 
 - **Never push to a remote** unless I explicitly ask you to push.
